@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shukri Mohammed | Professional Portfolio</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;800&display=swap" rel="stylesheet">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: { sans: ['Poppins', 'sans-serif'] },
+                    colors: { primary: '#0f0e17', secondary: '#fffffe', accent: '#a855f7' }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        /* Custom Styles & Animations */
+        body { background-color: #0f0e17; color: #fffffe; overflow-x: hidden; }
+        
+        .glass-nav {
+            background: rgba(15, 14, 23, 0.7);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+        
+        .glass-card {
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            border-radius: 16px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .glass-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(168, 85, 247, 0.15);
+            border-color: rgba(168, 85, 247, 0.3);
+        }
+
+        .gradient-text {
+            background: linear-gradient(to right, #a855f7, #ec4899);
+            -webkit-background-clip:text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .bg-glow {
+            position: absolute;
+            width: 300px; height: 300px;
+            background: radial-gradient(circle, rgba(168,85,247,0.3) 0%, rgba(15,14,23,0) 70%);
+            border-radius: 50%;
+            z-index: -1;
+            filter: blur(40px);
+        }
+
+        /* Scroll Reveal Animation */
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease-out;
+        }
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body class="antialiased selection:bg-purple-500 selection:text-white">
+
+    <!-- Navbar -->
+    <nav class="fixed w-full z-50 glass-nav transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="#home" class="text-2xl font-bold tracking-tighter">
+                Shukri<span class="text-purple-500">.</span>
+            </a>
+            
+            <!-- Desktop Menu -->
+            <div class="hidden md:flex space-x-8 text-sm font-medium text-gray-300">
+                <a href="#home" class="hover:text-purple-400 transition">Home</a>
+                <a href="#about" class="hover:text-purple-400 transition">About Me</a>
+                <a href="#projects" class="hover:text-purple-400 transition">Projects</a>
+                <a href="#contact" class="hover:text-purple-400 transition">Contact Me</a>
+            </div>
+
+            <!-- Mobile Menu Button -->
+            <button class="md:hidden text-gray-300 hover:text-white focus:outline-none" onclick="toggleMenu()">
+                <i class="fas fa-bars text-2xl"></i>
+            </button>
+        </div>
+        
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden glass-nav absolute w-full flex flex-col text-center space-y-4 py-6 text-gray-300 border-t border-gray-800">
+            <a href="#home" class="hover:text-purple-400" onclick="toggleMenu()">Home</a>
+            <a href="#about" class="hover:text-purple-400" onclick="toggleMenu()">About Me</a>
+            <a href="#projects" class="hover:text-purple-400" onclick="toggleMenu()">Projects</a>
+            <a href="#contact" class="hover:text-purple-400" onclick="toggleMenu()">Contact Me</a>
+        </div>
+    </nav>
+
+    <!-- Home / Hero Section -->
+    <section id="home" class="relative min-h-screen flex items-center justify-center pt-20 px-6">
+        <div class="bg-glow top-20 left-10"></div>
+        <div class="bg-glow bottom-20 right-10" style="background: radial-gradient(circle, rgba(236,72,153,0.2) 0%, rgba(15,14,23,0) 70%);"></div>
+        
+        <div class="max-w-4xl mx-auto text-center z-10 reveal">
+            <p class="text-purple-400 font-medium tracking-widest uppercase mb-4">Welcome to my universe</p>
+            <h1 class="text-5xl md:text-7xl font-extrabold mb-6 leading-tight">
+                Hi, I'm <br class="md:hidden"> <span class="gradient-text">Shukri Mohammed</span>
+            </h1>
+            <h2 class="text-xl md:text-2xl text-gray-400 mb-8 font-light">
+                BSc in Computer Science | Web Developer | Technology Enthusiast
+            </h2>
+            <div class="flex flex-col sm:flex-row justify-center items-center space-y-4 sm:space-y-0 sm:space-x-6">
+                <a href="#projects" class="px-8 py-3 bg-purple-600 hover:bg-purple-700 text-white rounded-full font-medium transition-all shadow-[0_0_15px_rgba(168,85,247,0.4)]">
+                    View My Work
+                </a>
+                <a href="#contact" class="px-8 py-3 border border-gray-600 hover:border-purple-500 hover:text-purple-400 rounded-full font-medium transition-all">
+                    Contact Me
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Me Section -->
+    <section id="about" class="py-24 px-6 border-t border-gray-800/50 relative">
+        <div class="max-w-6xl mx-auto reveal">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">About <span class="text-purple-500">Me</span></h2>
+                <div class="w-16 h-1 bg-purple-500 mx-auto rounded-full"></div>
+            </div>
+            
+            <div class="grid md:grid-cols-2 gap-12 items-center">
+                <div class="glass-card p-8 text-gray-300 leading-relaxed text-lg">
+                    <i class="fas fa-quote-left text-3xl text-purple-500/50 mb-4 block"></i>
+                    I am a computer science graduate passionate about software development, web technologies, and problem-solving. I enjoy building responsive web applications and continuously learning modern technologies to create impactful digital solutions.
+                </div>
+                
+                <div>
+                    <h3 class="text-2xl font-semibold mb-6">Core Skills</h3>
+                    <div class="space-y-6">
+                        <div>
+                            <div class="flex justify-between mb-2 text-sm text-gray-400"><span>Web Development</span><span>90%</span></div>
+                            <div class="w-full bg-gray-800 rounded-full h-2"><div class="bg-gradient-to-r from-purple-500 to-pink-500 h-2 rounded-full" style="width: 90%"></div></div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between mb-2 text-sm text-gray-400"><span>App Development</span><span>80%</span></div>
+                            <div class="w-full bg-gray-800 rounded-full h-2"><div class="bg-gradient-to-r from-purple-500 to-pink-500 h-2 rounded-full" style="width: 80%"></div></div>
+                        </div>
+                        <div>
+                        <div class="flex justify-between mb-2 text-sm text-gray-400"><span>Data Analysis</span><span>75%</span></div>
+                            <div class="w-full bg-gray-800 rounded-full h-2"><div class="bg-gradient-to-r from-purple-500 to-pink-500 h-2 rounded-full" style="width: 75%"></div></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="py-24 px-6 border-t border-gray-800/50 relative bg-gray-900/20">
+        <div class="max-w-6xl mx-auto reveal">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">Featured <span class="text-purple-500">Projects</span></h2>
+                <div class="w-16 h-1 bg-purple-500 mx-auto rounded-full"></div>
+            </div>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Project 1 -->
+                <div class="glass-card group overflow-hidden">
+                    <div class="h-48 bg-gray-800 relative overflow-hidden">
+                        <div class="absolute inset-0 bg-gradient-to-br from-purple-600/20 to-blue-600/20 group-hover:scale-110 transition-transform duration-500 flex items-center justify-center">
+                            <i class="fas fa-laptop-code text-5xl text-gray-600 group-hover:text-purple-400 transition-colors"></i>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <div class="text-xs text-purple-400 mb-2 font-mono">Web Development</div>
+                        <h3 class="text-xl font-bold mb-3">E-Commerce Web App</h3>
+                        <p class="text-gray-400 text-sm mb-4">A fully responsive e-commerce platform built with modern web technologies, featuring seamless user experience.</p>
+                        <a href="#" class="text-sm font-medium text-white hover:text-purple-400 transition">View Project <i class="fas fa-arrow-right ml-1"></i></a>
+                    </div>
+                </div>
+
+                <!-- Project 2 -->
+                <div class="glass-card group overflow-hidden">
+                    <div class="h-48 bg-gray-800 relative overflow-hidden">
+                        <div class="absolute inset-0 bg-gradient-to-br from-pink-600/20 to-purple-600/20 group-hover:scale-110 transition-transform duration-500 flex items-center justify-center">
+                            <i class="fas fa-mobile-alt text-5xl text-gray-600 group-hover:text-pink-400 transition-colors"></i>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <div class="text-xs text-pink-400 mb-2 font-mono">App Development</div>
+                        <h3 class="text-xl font-bold mb-3">Task Management App</h3>
+                        <p class="text-gray-400 text-sm mb-4">A cross-platform mobile application designed to boost productivity and manage daily tasks efficiently.</p>
+                        <a href="#" class="text-sm font-medium text-white hover:text-pink-400 transition">View Project <i class="fas fa-arrow-right ml-1"></i></a>
+                    </div>
+                </div>
+
+                <!-- Project 3 -->
+                <div class="glass-card group overflow-hidden">
+                    <div class="h-48 bg-gray-800 relative overflow-hidden">
+                        <div class="absolute inset-0 bg-gradient-to-br from-blue-600/20 to-cyan-600/20 group-hover:scale-110 transition-transform duration-500 flex items-center justify-center">
+                            <i class="fas fa-chart-bar text-5xl text-gray-600 group-hover:text-blue-400 transition-colors"></i>
+                         </div>
+                    </div>
+                    <div class="p-6">
+                        <div class="text-xs text-blue-400 mb-2 font-mono">Data Analysis</div>
+                        <h3 class="text-xl font-bold mb-3">Business Analytics Dashboard</h3>
+                        <p class="text-gray-400 text-sm mb-4">A comprehensive dashboard that visualizes complex datasets to help businesses make data-driven decisions.</p>
+                        <a href="#" class="text-sm font-medium text-white hover:text-blue-400 transition">View Project <i class="fas fa-arrow-right ml-1"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Me Section -->
+    <section id="contact" class="py-24 px-6 border-t border-gray-800/50 relative">
+        <div class="max-w-4xl mx-auto reveal">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">Let's <span class="text-purple-500">Connect</span></h2>
+                <div class="w-16 h-1 bg-purple-500 mx-auto rounded-full"></div>
+                <p class="text-gray-400 mt-6">Feel free to reach out for collaborations or just a friendly hello!</p>
+            </div>
+            
+            <div class="glass-card p-8 md:p-10">
+                <form class="space-y-6">
+                    <div class="grid md:grid-cols-2 gap-6">
+                        <div>
+                            <label class="block text-sm text-gray-400 mb-2">Your Name</label>
+                            <input type="text" class="w-full bg-gray-900/50 border border-gray-700 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-purple-500 transition-colors" placeholder="John Doe">
+                        </div>
+                        <div>
+                            <label class="block text-sm text-gray-400 mb-2">Your Email</label>
+                            <input type="email" class="w-full bg-gray-900/50 border border-gray-700 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-purple-500 transition-colors" placeholder="john@example.com">
+                        </div>
+                    </div>
+                    <div>
+                        <label class="block text-sm text-gray-400 mb-2">Message</label>
+                        <textarea rows="5" class="w-full bg-gray-900/50 border border-gray-700 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-purple-500 transition-colors" placeholder="Hello Shukri, I would like to talk about..."></textarea>
+                    </div>
+                    <button type="button" class="w-full py-4 bg-purple-600 hover:bg-purple-700 text-white rounded-lg font-bold tracking-wide transition-all shadow-[0_0_15px_rgba(168,85,247,0.3)] hover:shadow-[0_0_25px_rgba(168,85,247,0.6)]">
+                        Send Message
+                    </button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-8 text-center border-t border-gray-800 text-sm text-gray-500">
+        <div class="flex justify-center space-x-6 mb-4">
+            <a href="#" class="text-gray-400 hover:text-white transition text-xl"><i class="fab fa-github"></i></a>
+            <a href="#" class="text-gray-400 hover:text-blue-500 transition text-xl"><i class="fab fa-linkedin"></i></a>
+            <a href="#" class="text-gray-400 hover:text-pink-500 transition text-xl"><i class="fab fa-instagram"></i></a>
+        </div>
+        <!-- Footer & Social Media -->
+    <footer class="py-10 text-center border-t border-gray-800 text-sm text-gray-500 bg-black/20">
+        <h3 class="text-lg text-gray-300 font-semibold mb-4">Let's Connect on Social Media</h3>
+        <div class="flex justify-center space-x-6 mb-6">
+            
+            <!-- LinkedIn Kee -->
+            <!-- Bakka "LINK_LINKEDIN_KEE_ASITTI_GALCHI" jedhu haqiitii linkii kee sirrii itti galchi -->
+            <a href="https://www.linkedin.com/in/shukri-muhammad-82a824334" target="_blank" class="text-gray-400 hover:text-blue-500 transition-all transform hover:scale-125 text-2xl">
+                <i class="fab fa-linkedin"></i>
+            </a>
+
+            <!-- GitHub Kee -->
+            <!-- Bakka "LINK_GITHUB_KEE_ASITTI_GALCHI" jedhu haqiitii linkii kee sirrii itti galchi -->
+            <a href="https://adiko15.github.io/portfolio-website/" target="_blank" class="text-gray-400 hover:text-white transition-all transform hover:scale-125 text-2xl">
+                <i class="fab fa-github"></i>
+            </a>
+
+            <!-- Telegram Kee (Yoo barbaadde) -->
+            <!-- Bakka "LINK_TELEGRAM_KEE_ASITTI_GALCHI" jedhu haqiitii linkii kee sirrii itti galchi -->
+            <a href="https://www.Telegram.com/@addikoo" target="_blank" class="text-gray-400 hover:text-blue-400 transition-all transform hover:scale-125 text-2xl">
+                <i class="fab fa-telegram"></i>
+            </a>
+
+            <!-- Facebook ykn Instagram Kee (Yoo barbaadde) -->
+            <a href="https://www.facebook.com/shukri.muha" target="_blank" class="text-gray-400 hover:text-pink-500 transition-all transform hover:scale-125 text-2xl">
+                <i class="fab fa-instagram"></i>
+            </a>
+
+        </div>
+        <p>&copy; 2026 Shukri Mohammed. All rights reserved.</p>
+    </footer
+
+    <!-- JavaScript for Interactivity -->
+    <script>
+        // Mobile Menu Toggle
+        function toggleMenu() {
+            const menu = document.getElementById('mobile-menu');
+            menu.classList.toggle('hidden');
+        }
+ // Scroll Reveal Animation (Intersection Observer)
+        function reveal() {
+            var reveals = document.querySelectorAll(".reveal");
+            for (var i = 0; i < reveals.length; i++) {
+                var windowHeight = window.innerHeight;
+                var elementTop = reveals[i].getBoundingClientRect().top;
+                var elementVisible = 150;
+                if (elementTop < windowHeight - elementVisible) {
+                    reveals[i].classList.add("active");
+                }
+            }
+        }
+        window.addEventListener("scroll", reveal);
+        reveal(); // Trigger on load
+    </script>
+</body>
+</html>
